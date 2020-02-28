@@ -2,15 +2,21 @@ const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
-const bodyParser = require('body-parser');
+const passport =require('passport');
 
 
 
 //Load User Model
 require('../models/User');
+require('../models/Candidat');
+require('../models/BureauVote');
+require('../models/Incident');
+require('../models/Scrutin');
+require('../models/Resultat');
+
 const User = mongoose.model('users');
 
-//Register route 
+/////////////////Register route ////////////////////
 router.post('/register',(req,res)=>{
     let errors =[ status={}, allErrors={}];
    
@@ -93,24 +99,18 @@ router.post('/register',(req,res)=>{
 
            }
        })
-        
-        
-        
-       
-
     }
-
-
-
-   
+ 
 })
 
+///////////////// LOGIN ////////////////////
 
-//Login route
-router.post('/login',(req,res)=>{
-    console.log(req.body);
-    res.send('yeah')
-})
+router.post('/login', (req, res, next) => {
+    passport.authenticate('local', {
+     
+      failureFlash: true
+    })(req, res, next);
+  });
 
 
 module.exports = router;

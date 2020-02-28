@@ -1,12 +1,19 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose =  require ('mongoose');
-
+const passport = require('passport');
+const session = require('express-session');
 const app = express();
+
 
 
 //load all routes
 const users =require('./routes/users')
+const adminRouter = require('./routes/admin')
+const scrutin = require('./routes/scrutin')
+
+// passport Config : 
+require ('./config/passport')(passport);
 
 // Connecter mongoose
 mongoose.connect('mongodb://localhost:27017/Malicratie', {useNewUrlParser: true, useUnifiedTopology: true})
@@ -14,9 +21,14 @@ mongoose.connect('mongodb://localhost:27017/Malicratie', {useNewUrlParser: true,
     .catch(err =>console.log(err));
 
 
-// Body parser middleWare
-app.use(bodyParser.urlencoded({ extended: true }));
+// MiddleWares
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
+app.use(passport.initialize());
+app.use(passport.session());
+app.use('/admin',adminRouter);
+
 
 
 
@@ -28,6 +40,7 @@ app.get('/',(req,res)=>{
 
 //Use routes
 app.use('/user',users)
+app.use('/scrutin',scrutin)
 
 
 //definir le port
