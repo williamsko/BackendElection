@@ -24,7 +24,11 @@ const SchemaUser= new Schema ({
     createdAt:{
         type:Date,
         default:Date.now 
-    }
+    },
+    isActif:{
+        type:Boolean,
+        default:true
+    },
      
 });
 

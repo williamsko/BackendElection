@@ -1,17 +1,36 @@
 const mongoose = require('mongoose');
 const Schema =  mongoose.Schema;
 
+const SchemaCoord = new Schema({
+    lon:{
+        type:Number,
+        required:true
+    },
+    lat:{
+        type:Number,
+        required:true
+    }
+})
+
 const SchemaBureauVote = new Schema ({
     nom:{
         type:String,
         required:true
     },
-    numeroBureau:{
+    codeBureauDeVote:{
         type:Number,
         required:true
     },
     coordGeo:{
-        type:Array,
+        type: [SchemaCoord],
+        
+    },
+    region:{
+        type:String,
+        required:true
+    },
+    cercle:{
+        type:String,
         required:true
     },
     commune:{
@@ -21,4 +40,4 @@ const SchemaBureauVote = new Schema ({
    
 })
 
-mongoose.model('Bureaux de vote',SchemaBureauVote)
+mongoose.model('BureauxDeVote',SchemaBureauVote)

@@ -1,34 +1,61 @@
 const mongoose =require('mongoose')
 const Schema = mongoose.Schema;
 
+
+
+const SchemaGpscoord = new Schema({
+    lon:{
+        type:Number,
+        required:true
+    },
+    lat:{
+        type:Number,
+        required:true
+    }
+})
+
+
+
+
+
 const SchemaIncident = new Schema ({
-    TitreIncident:{
+    titreIncident:{
         type:String, 
         required:true
     },
-    Type: {
-        type: String, 
+    type: {
+        type: {type: Schema.Types.ObjectId, ref:'Type Incidents'}, 
+    },
+    whoStarted: {
+        type:String, 
         required:true
     },
-    lieu:{
+    commune:{
         type:String,
         required:true
     },
     coordGps:{
-        type:Array,
-        required:true
+        type:[SchemaGpscoord],
     },
     by: {
         type:String,
         required:true
     },
-    DateHeure:{
-        type:Date,
+    periode:{
+        type:String,
         required:true
     },
-    Verified : {
-        type:Boolean,
+    dateHeure:{
+        type:Date,
+        default:Date.now,
+    },
+    idScrutin:{
+        type:String,
         required:true
+    },
+    verified : {
+        type:Boolean,
+        
     }
 })
 

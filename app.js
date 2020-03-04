@@ -11,6 +11,9 @@ const app = express();
 const users =require('./routes/users')
 const adminRouter = require('./routes/admin')
 const scrutin = require('./routes/scrutin')
+const formulaire = require('./routes/formulaires')
+const bureau = require('./routes/bureau')
+const incident = require('./routes/incident')
 
 // passport Config : 
 require ('./config/passport')(passport);
@@ -41,7 +44,9 @@ app.get('/',(req,res)=>{
 //Use routes
 app.use('/user',users)
 app.use('/scrutin',scrutin)
-
+app.use('/form',formulaire)
+app.use('/bureau',bureau)
+app.use('/incident',incident)
 
 //definir le port
 const port = 5000;

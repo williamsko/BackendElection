@@ -7,8 +7,7 @@ const SchemaCandidat = new Schema({
         required:true, 
     },
     typeCandidat:{
-        type:String,
-        required:true, 
+        listType:{type: Schema.Types.ObjectId, ref:'Type Candidat'},
     },
     PartiPolitique:{
         type:String,

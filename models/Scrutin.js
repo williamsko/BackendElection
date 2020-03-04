@@ -17,6 +17,11 @@ const SchemaScrutin = new Schema  ({
     createdAt:{
         type:Date,
         default:Date.now
+    },
+    obsID:{
+        type:[Array],
+        required:true
+
     }
 } )
 

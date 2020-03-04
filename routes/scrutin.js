@@ -8,7 +8,7 @@ require('../models/Scrutin');
 const Scrutin = mongoose.model('Scrutins');
 
 
-////// load scrutin router
+////// scrutin router
 
 router.post('/load',(req,res)=>{
     //voir si l'id donné existe
@@ -30,6 +30,21 @@ router.post('/load',(req,res)=>{
    
 })
 
+
+//// get all scrutin 
+
+router.post ('/loadAll',(req,res)=>{
+    Scrutin.find()
+    .then(scrutins => {
+        if (scrutins){
+            console.log(scrutins)
+            res.send(scrutins)
+        }else{
+            res.send({status:500,text:"pas de scrutin trouver"})
+        }
+    })
+  
+})
 
 
 
