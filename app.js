@@ -47,7 +47,7 @@ app.use('/bureau',bureau)
 app.use('/incident',incident)
 
 //definir le port
-const port = 5000;
+const port = process.env.PORT || 5000;
 
 // ecouter le port 
 app.listen(port, ()=> {
