@@ -34,9 +34,6 @@ app.use(passport.session());
 app.use('/admin',adminRouter);
 
 
-
-
-
 //index Route
 app.get('/',(req,res)=>{
     res.send('Index');
