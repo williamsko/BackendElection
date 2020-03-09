@@ -4,6 +4,7 @@
   "description": "Malicratie Back-end",
   "main": "App.js",
   "scripts": {
+    "start": "node App.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Alexis Babacar Sambou",

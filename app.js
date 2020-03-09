@@ -4,6 +4,7 @@ const mongoose =  require ('mongoose');
 const passport = require('passport');
 const session = require('express-session');
 const app = express();
+const GVariables= require('./config/globalVariables');
 
 
 
@@ -19,7 +20,7 @@ const incident = require('./routes/incident')
 require ('./config/passport')(passport);
 
 // Connecter mongoose
-mongoose.connect('mongodb://localhost:27017/Malicratie', {useNewUrlParser: true, useUnifiedTopology: true})
+mongoose.connect(GVariables.mongoURILocal, {useNewUrlParser: true, useUnifiedTopology: true})
     .then(()=> console.log('MongoDB connected ...'))
     .catch(err =>console.log(err));
 
