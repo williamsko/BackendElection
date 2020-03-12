@@ -25,14 +25,6 @@ const SchemaBureauVote = new Schema ({
         type: [SchemaCoord],
         
     },
-    region:{
-        type:String,
-        required:true
-    },
-    cercle:{
-        type:String,
-        required:true
-    },
     commune:{
         type:String,
         required:true
