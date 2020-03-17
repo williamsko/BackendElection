@@ -44,8 +44,8 @@ app.use('/user',users)
 app.use('/scrutin',scrutin)
 app.use('/form',formulaire)
 app.use('/bureau',bureau)
-app.use('/incident',incident)
-
+app.use('/incident',incident) 
+ 
 //definir le port
 const port = process.env.PORT || 5000;
 

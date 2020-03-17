@@ -109,10 +109,23 @@ router.post('/register',(req,res)=>{
 ///////////////// LOGIN ////////////////////
 
 router.post('/login', (req, res, next) => {
-    passport.authenticate('local', {
-     
-      failureFlash: true
-    })(req, res, next);
+   User.findOne({phoneNumber: req.body.tel})
+   .then(user => {
+       if(user){
+          bcrypt.compare(req.body.pwd, user.pwd).then((response) => {
+            if(response == true){ 
+                console.log('Utilisateur existe et le mot de passe est bON');
+                res.status(200).send(user)
+            }else{
+                console.log('Utilisateur existe et le mot de passe est érronée')
+                res.json({status:403})
+            }
+        });
+       }else{
+        console.log('utilisateur nexsite pas')
+        res.status(404).send({status:404})
+       }
+   })
   });
 
 
