@@ -1,6 +1,7 @@
 {
   "name": "malicratie",
   "version": "1.0.0",
+  "private":true,
   "description": "Malicratie Back-end",
   "main": "app.js",
   "engines": {
