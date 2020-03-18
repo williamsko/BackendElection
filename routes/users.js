@@ -13,7 +13,7 @@ require('../models/BureauVote');
 require('../models/Incident');
 require('../models/Scrutin');
 require('../models/Resultat');
-require('../models/Formulaire');
+//require('../models/Formulaire');
 require('../models/TypeCandidat');
 require('../models/TypeIncident');
 
