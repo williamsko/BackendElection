@@ -20,7 +20,7 @@ const incident = require('./routes/incident')
 require ('./config/passport')(passport);
 
 // Connecter mongoose
-mongoose.connect(GVariables.mongoURILocal, {useNewUrlParser: true, useUnifiedTopology: true})
+mongoose.connect(GVariables.mongoURI, {useNewUrlParser: true, useUnifiedTopology: true})
     .then(()=> console.log('MongoDB connected ...'))
     .catch(err =>console.log(err));
 
