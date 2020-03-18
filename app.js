@@ -4,7 +4,7 @@ const mongoose =  require ('mongoose');
 const passport = require('passport');
 const session = require('express-session');
 const app = express();
-const GVariables= require('./config/globalVariables');
+//const GVariables = require('./config/globalVariables');
 
 
 
@@ -20,7 +20,7 @@ const incident = require('./routes/incident')
 require ('./config/passport')(passport);
 
 // Connecter mongoose
-mongoose.connect(GVariables.mongoURILocal, {useNewUrlParser: true, useUnifiedTopology: true})
+mongoose.connect('mongodb+srv://lexis:153426slimalexiS@cluster0-naxql.mongodb.net/AjacadElection?retryWrites=true&w=majority', {useNewUrlParser: true, useUnifiedTopology: true})
     .then(()=> console.log('MongoDB connected ...'))
     .catch(err =>console.log(err));
 
