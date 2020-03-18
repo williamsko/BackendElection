@@ -71,6 +71,7 @@ router.post('/register',(req,res)=>{
                errors[0]["status"]=400;
                console.log("contenu de error ===>  " + JSON.stringify(errors))
                errors.push({data : req.body})
+               res.type('application/json')
                res.json(errors)
            }else{
             const newUser = new User({
@@ -88,6 +89,7 @@ router.post('/register',(req,res)=>{
                         .then(user => {
                             console.log(user);
                             errors[0]["status"] = 200;
+                            res.type('application/json')
                             res.json(errors);
                         })
                         .catch(err => {
@@ -115,14 +117,17 @@ router.post('/login', (req, res, next) => {
           bcrypt.compare(req.body.pwd, user.pwd).then((response) => {
             if(response == true){ 
                 console.log('Utilisateur existe et le mot de passe est bON');
+                res.type('application/json')
                 res.status(200).send(user)
             }else{
                 console.log('Utilisateur existe et le mot de passe est érronée')
+                res.type('application/json')
                 res.json({status:403})
             }
         });
        }else{
         console.log('utilisateur nexsite pas')
+        res.type('application/json')
         res.status(404).send({status:404})
        }
    })

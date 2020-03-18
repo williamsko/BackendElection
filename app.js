@@ -20,7 +20,7 @@ const incident = require('./routes/incident')
 require ('./config/passport')(passport);
 
 // Connecter mongoose
-mongoose.connect('mongodb+srv://lexis:153426slimalexiS@cluster0-naxql.mongodb.net/AjacadElection?retryWrites=true&w=majority', {useNewUrlParser: true, useUnifiedTopology: true})
+mongoose.connect(GVariables.mongoURILocal, {useNewUrlParser: true, useUnifiedTopology: true})
     .then(()=> console.log('MongoDB connected ...'))
     .catch(err =>console.log(err));
 
