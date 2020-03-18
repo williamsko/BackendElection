@@ -4,7 +4,7 @@ const mongoose =  require ('mongoose');
 const passport = require('passport');
 const session = require('express-session');
 const app = express();
-//const GVariables = require('./config/globalVariables');
+const GVariables = require('./config/globalVariables');
 
 
 
