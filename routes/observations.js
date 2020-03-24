@@ -49,6 +49,7 @@ router.post('/NewObsPreelectoral', (req, res) => {
         SuiviMeetingQuelCandidat: req.body.candidat,
         DeroulementPreElectoral: req.body.deroulement,
         idScrutin:req.body.idScrutin,
+        idObservateur:req.body.idObs,
         coordGeo:req.body.coord
     })
     

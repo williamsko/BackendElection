@@ -33,6 +33,10 @@ const SchemaPreElectorale = new Schema ({
         type:String,
         required:true
     },
+    idObservateur:{
+        type:String,
+        required:true
+    },
     createdAt:{
         type:Date,
         default:Date.now
