@@ -19,7 +19,7 @@ const SchemaScrutin = new Schema  ({
         default:Date.now
     },
     obsID:{
-        type:[Array],
+        type:Array,
         required:true
 
     }

@@ -15,12 +15,13 @@ const scrutin = require('./routes/scrutin')
 const formulaire = require('./routes/formulaires')
 const bureau = require('./routes/bureau')
 const incident = require('./routes/incident')
+const observation = require('./routes/observations')
 
 // passport Config : 
 require ('./config/passport')(passport);
 
 // Connecter mongoose
-mongoose.connect(GVariables.mongoURI, {useNewUrlParser: true, useUnifiedTopology: true})
+mongoose.connect(GVariables.mongoURILocal, {useNewUrlParser: true, useUnifiedTopology: true})
     .then(()=> console.log('MongoDB connected ...'))
     .catch(err =>console.log(err));
 
@@ -45,6 +46,7 @@ app.use('/scrutin',scrutin)
 app.use('/form',formulaire)
 app.use('/bureau',bureau)
 app.use('/incident',incident) 
+app.use('/observations',observation) 
  
 //definir le port
 const port = process.env.PORT || 5000;

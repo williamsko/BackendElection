@@ -14,6 +14,7 @@ router.post('/create', (req, res) => {
         codeBureauDeVote: req.body.code,
         coordGeo: req.body.coord,
         commune: req.body.commune,
+        region:req.body.region
     })
     newBureau.save()
         .then(bureau => {

@@ -20,7 +20,10 @@ const SchemaCandidat = new Schema({
     couleurDuCandidat:{
         type:String,
         required:true, 
-    }
+    },
+    idScrutin:{
+        listType:{type: Schema.Types.ObjectId, ref:'Scrutins'},
+    },
 })
 
 mongoose.model('Candidats',SchemaCandidat)

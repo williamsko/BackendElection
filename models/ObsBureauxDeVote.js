@@ -42,7 +42,11 @@ const SchemaObsBureauVote = new Schema ({
         type: [SchemaCoord],
         
     },
+    createdAt:{
+        type:Date,
+        default:Date.now
+    },
    
 })
 
-mongoose.model('ObservationBureauxDeVote',SchemaObsBureauVote)
+mongoose.model('ObsBureauxDeVote',SchemaObsBureauVote)

@@ -12,10 +12,15 @@ require('../models/Candidat');
 require('../models/BureauVote');
 require('../models/Incident');
 require('../models/Scrutin');
-require('../models/Resultat');
+require('../models/ObsResultat');
 require('../models/Formulaire');
 require('../models/TypeCandidat');
 require('../models/TypeIncident');
+require('../models/ObsBureauxDeVote');
+require('../models/ObsPreElectorale');
+require('../models/ObsVoting');
+require('../models/ObsDepouillement');
+require('../models/ObsResultat');
 
 const User = mongoose.model('users');
 
