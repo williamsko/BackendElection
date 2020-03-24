@@ -51,7 +51,7 @@ router.post('/NewObsPreelectoral', (req, res) => {
         idScrutin:req.body.idScrutin,
         coordGeo:req.body.coord
     })
-    console.log(req.body)
+    
     newObsPreElec.save()
         .then(preElec => {
             res.send({status:200,data: preElec})
