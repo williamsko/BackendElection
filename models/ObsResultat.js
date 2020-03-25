@@ -44,7 +44,10 @@ const SchemaResultat = new Schema({
         type:String,
         required:true,
     },
-
+    idObservateur:{
+        type:String,
+        required:true
+    },
     idBureauVote:{
         type:String,
         required:true

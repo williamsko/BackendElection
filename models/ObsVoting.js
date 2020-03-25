@@ -39,6 +39,10 @@ const SchemaObsVoting = new Schema ({
         type:String,
         required:true
     },
+    idObservateur:{
+        type:String,
+        required:true
+    },
     coordGeo:{
         type: [SchemaCoord],
         

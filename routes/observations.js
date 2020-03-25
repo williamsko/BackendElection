@@ -27,6 +27,7 @@ router.post('/NewObsBureau', (req, res) => {
         MaterielAuComplet: req.body.materielComplet,
         isoloireGarantieSecretVote: req.body.isoloireGarantie,
         idScrutin:req.body.idScrutin,
+        idObservateur:req.body.idObs,
         idBureauVote:req.body.idBureauVote,
         coordGeo:req.body.coord
     })
@@ -74,6 +75,7 @@ router.post('/NewObsVoting', (req, res) => {
         CombienVotant13h:req.body.nbrVotant13h,
         idScrutin:req.body.idScrutin,
         idBureauVote:req.body.idBureauVote,
+        idObservateur: req.body.idObs,
         coordGeo:req.body.coord
     })
     newObsVoting.save()
@@ -96,6 +98,7 @@ router.post('/NewObsDep', (req, res) => {
         depouiellementSansIncident: req.body.depouiellementSansIncident,
         ImpressionGlobalScrutin: req.body.ImpressionGlobalScrutin,
         idScrutin: req.body.idScrutin,
+        idObservateur:req.body.idObs,
         idBureauVote: req.body.idBureauVote,
         coordGeo:req.body.coord
     })
@@ -120,7 +123,8 @@ router.post('/NewResult', (req, res) => {
         nombresBullletinsNuls: req.body.bulletinsNuls,
         SuffragesExprimes: req.body.SuffragesExprimes,
         NbrVotesProcurations: req.body.NbrVotesProcurations,
-        voixCandidats: req.body.voixCandidats,
+        
+        idObservateur:req.body.idObs,
         idScrutin: req.body.idScrutin,
         idBureauVote: req.body.idBureauVote,
     })
