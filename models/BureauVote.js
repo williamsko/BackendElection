@@ -4,11 +4,11 @@ const Schema =  mongoose.Schema;
 const SchemaCoord = new Schema({
     lon:{
         type:Number,
-        required:true
+        
     },
     lat:{
         type:Number,
-        required:true
+        
     }
 })
 
@@ -23,13 +23,24 @@ const SchemaBureauVote = new Schema ({
     },
     coordGeo:{
         type: [SchemaCoord],
-        
     },
     commune:{
+        type:String,
+        
+    },
+    cercle:{
         type:String,
         required:true
     },
     region:{
+        type:String,
+        required:true
+    },
+    idScrutin:{
+        type:String,
+      
+    },
+    idObservateur:{
         type:String,
         required:true
     },

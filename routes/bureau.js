@@ -12,9 +12,12 @@ router.post('/create', (req, res) => {
     const newBureau = new Bureau({
         nom: req.body.nom,
         codeBureauDeVote: req.body.code,
-        coordGeo: req.body.coord,
+        region:req.body.region,
+        cercle:req.body.cercle,
         commune: req.body.commune,
-        region:req.body.region
+        idObservateur:req.body.idObs,
+        idScrutin: req.body.idScrutin,
+        coordGeo: req.body.coord,
     })
     newBureau.save()
         .then(bureau => {
