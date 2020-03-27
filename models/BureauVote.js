@@ -18,7 +18,7 @@ const SchemaBureauVote = new Schema ({
         required:true
     },
     codeBureauDeVote:{
-        type:Number,
+        type:String,
         required:true
     },
     coordGeo:{
