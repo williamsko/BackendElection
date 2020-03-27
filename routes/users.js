@@ -21,6 +21,7 @@ require('../models/ObsPreElectorale');
 require('../models/ObsVoting');
 require('../models/ObsDepouillement');
 require('../models/ObsResultat');
+require('../models/ObsCorona');
 
 const User = mongoose.model('users');
 

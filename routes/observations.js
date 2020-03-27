@@ -6,6 +6,9 @@ const mongoose = require('mongoose');
 require('../models/ObsBureauxDeVote');
 const obsBureauVote = mongoose.model('ObsBureauxDeVote')
 
+require('../models/BureauVote');
+const BureauVote = mongoose.model('BureauxDeVote')
+
 require('../models/ObsPreElectorale');
 const ObsPreElectorale = mongoose.model('PreElectorale')
 
@@ -17,6 +20,9 @@ const ObsDep = mongoose.model('Depouillement')
 
 require('../models/ObsResultat');
 const ObsResultat = mongoose.model('Resultats')
+
+require('../models/ObsCorona');
+const ObsCorona = mongoose.model('Corona')
 
 
 ////// Observation d'un bureau de vote route \\\\\\\\\
@@ -33,6 +39,7 @@ router.post('/NewObsBureau', (req, res) => {
     })
     newObsBureau.save()
         .then(bureau => {
+            console.log('Bureau de vote rajouté !!!!!' + bureau)
             res.send({status:200,data: bureau})
         })
         .catch(err => {
@@ -41,6 +48,39 @@ router.post('/NewObsBureau', (req, res) => {
             return;
         })
 })
+
+//// GET Données tous Bureaux de vote ////////
+
+router.get('/DataBureau/:idScrutin',(req,res)=>{
+    console.log('c ça que jai recu comme ID: ' + req.params.idScrutin)
+    BureauVote.find({ idScrutin: req.params.idScrutin})
+    .then(bureaux => {
+        if (bureaux){
+            res.send(bureaux);
+           //console.log(JSON.stringify(form))
+        }else{
+            res.send('jai rien trouver')
+        }
+    })
+})
+
+//// GET Données un obs Bureau de vote ////////
+
+router.get('/ObsDataBureau/:idBureauVote',(req,res)=>{
+    //console.log('c ça que jai recu comme ID: ' + req.params.idBureauVote)
+    obsBureauVote.findOne({ idBureauVote: req.params.idBureauVote})
+    .then(obsBureau => {
+        if (obsBureau){
+            res.send(obsBureau);
+           //console.log(JSON.stringify(form))
+        }else{
+            res.send('jai rien trouver')
+        }
+    })
+})
+
+
+
 
 
 ////// Observation préElectorale route \\\\\\\\\
@@ -67,6 +107,10 @@ router.post('/NewObsPreelectoral', (req, res) => {
 })
 
 
+
+
+
+
 ////// Observation Deroulement vote ( volting ) route \\\\\\\\\
 router.post('/NewObsVoting', (req, res) => {
     const newObsVoting = new ObsVoting({
@@ -89,6 +133,32 @@ router.post('/NewObsVoting', (req, res) => {
             return;
         })
 })
+
+//// GET Données Deroullement du vote ////////
+
+router.get('/DataVoting/:idScrutin',(req,res)=>{
+    console.log('c ça que jai recu comme ID: ' + req.params.idScrutin)
+    ObsVoting.find({ idScrutin: req.params.idScrutin})
+    .then(voting => {
+        if (voting){
+            res.send(voting);
+           console.log(JSON.stringify(voting))
+        }else{
+            res.send('jai rien trouver')
+        }
+    })
+})
+
+
+
+
+
+
+
+
+
+
+
 
 
 ///// Observation Depouillement du vote route \\\\\\\\\
@@ -116,6 +186,8 @@ router.post('/NewObsDep', (req, res) => {
 
 
 
+
+
 ///// remonté resultat du Bureau vote route \\\\\\\\\
 router.post('/NewResult', (req, res) => {
     const newResult = new ObsResultat({
@@ -139,6 +211,34 @@ router.post('/NewResult', (req, res) => {
             return;
         })
 })
+
+
+
+///// Observation Corona route \\\\\\\\\
+router.post('/NewObsCorona', (req, res) => {
+    const newObsCorona = new ObsCorona({
+        kitDeProtectionAgent: req.body.kitDeProtectionAgent,
+        desinfectants: req.body.desinfectants,
+        affichePrevention: req.body.affichePrevention,
+        agentRespectDistance: req.body.agentRespectDistance,
+        desinfectionBureau:req.body.desinfectionBureau,
+        lavageMainObligatoireInOut:req.body.lavageMain,
+        idScrutin: req.body.idScrutin,
+        idObservateur:req.body.idObs,
+        idBureauVote: req.body.idBureauVote,
+        coordGeo:req.body.coord
+    })
+    newObsCorona.save()
+        .then(dep => {
+            res.send({status:200,data: dep})
+        })
+        .catch(err => {
+            console.log(err);
+            res.send({status:300, data: req.body})
+            return;
+        })
+})
+
 
 
 
