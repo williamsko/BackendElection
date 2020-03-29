@@ -19,6 +19,7 @@ const adminBro = new AdminBro({
     favicon:'https://i.ibb.co/jfkNNHt/icone-malicratie.png',
     SoftwareBrothers:true,
   },
+  
 })
 
 const ADMIN = {
