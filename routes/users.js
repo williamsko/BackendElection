@@ -22,6 +22,7 @@ require('../models/ObsVoting');
 require('../models/ObsDepouillement');
 require('../models/ObsResultat');
 require('../models/ObsCorona');
+require('../models/UserAdmin');
 
 const User = mongoose.model('users');
 

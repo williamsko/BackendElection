@@ -13,6 +13,10 @@ const SchemaCoord = new Schema({
 })
 
 const SchemaObsCorona = new Schema ({
+    idBureauVote:{
+        type:String,
+        required:true
+    },
     kitDeProtectionAgent:{
         type:String,
         required:true
@@ -42,10 +46,7 @@ const SchemaObsCorona = new Schema ({
         type:String,
         required:true
     },
-    idBureauVote:{
-        type:String,
-        required:true
-    },
+   
     idObservateur:{
         type:String,
         required:true

@@ -1,7 +1,7 @@
 {
   "name": "malicratie",
   "version": "1.0.0",
-  "private":true,
+  "private": true,
   "description": "Malicratie Back-end",
   "main": "app.js",
   "engines": {
@@ -14,11 +14,13 @@
   "author": "Alexis Babacar Sambou",
   "license": "MIT",
   "dependencies": {
+    "@carbon/icons-react": "^10.9.3",
     "admin-bro": "^1.6.6",
     "admin-bro-expressjs": "^0.4.0",
     "admin-bro-mongoose": "^0.4.0",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.5",
     "express": "^4.17.1",
     "express-formidable": "^1.2.0",
     "express-session": "^1.17.0",
@@ -26,5 +28,4 @@
     "passport": "^0.4.1",
     "passport-local": "^1.0.0"
   }
-  
-}   
+}

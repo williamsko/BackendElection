@@ -31,6 +31,22 @@ router.post('/new', (req, res) => {
 })
 
 
+//// GET Données tous les incidents ////////
+
+router.get('/DataIncident',(req,res)=>{
+    //console.log('c ça que jai recu comme ID: ' + req.params.idScrutin)
+    Incident.find({ })
+    .then(incidents => {
+        if (incidents){
+            res.send(incidents);
+           //console.log(JSON.stringify(form))
+        }else{
+            res.send('jai rien trouver')
+        }
+    })
+})
+
+
 
 
 

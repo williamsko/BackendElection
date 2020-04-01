@@ -14,6 +14,10 @@ const SchemaCoord = new Schema({
 })
 
 const SchemaObsVoting = new Schema ({
+    idBureauVote:{
+        type:String,
+        required:true
+    },
     ElecteurMontrerCarteVerification:{
         type:String,
         required:true
@@ -35,10 +39,7 @@ const SchemaObsVoting = new Schema ({
         type:String,
         required:true
     },
-    idBureauVote:{
-        type:String,
-        required:true
-    },
+   
     idObservateur:{
         type:String,
         required:true

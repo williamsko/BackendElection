@@ -13,6 +13,10 @@ const SchemaCoord = new Schema({
 })
 
 const SchemaPreElectorale = new Schema ({
+    idBureauVote:{
+        type:String,
+        required:true
+    },
     affichageListesElectorale:{
         type:String,
         required:true
@@ -33,10 +37,7 @@ const SchemaPreElectorale = new Schema ({
         type:String,
         required:true
     },
-    idBureauVote:{
-        type:String,
-        required:true
-    },
+   
     idObservateur:{
         type:String,
         required:true

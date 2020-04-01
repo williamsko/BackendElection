@@ -17,6 +17,10 @@ const SchemaResultatsCandidat= new Schema({
 
 
 const SchemaResultat = new Schema({
+    idBureauVote:{
+        type:String,
+        required:true
+    },
     nombresInscrit:{
         type: Number,
         required:true, 
@@ -48,10 +52,7 @@ const SchemaResultat = new Schema({
         type:String,
         required:true
     },
-    idBureauVote:{
-        type:String,
-        required:true
-    },
+    
     createdAt:{
         type:Date,
         default:Date.now

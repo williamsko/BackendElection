@@ -14,6 +14,11 @@ const SchemaCoord = new Schema({
 })
 
 const SchemaObsDep = new Schema ({
+    
+    idBureauVote:{
+        type:String,
+        required:true
+    },
     HeureCloture:{
         type:String,
         required:true
@@ -35,10 +40,7 @@ const SchemaObsDep = new Schema ({
         type:String,
         required:true
     },
-    idBureauVote:{
-        type:String,
-        required:true
-    },
+   
     coordGeo:{
         type: [SchemaCoord],
         
