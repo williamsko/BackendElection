@@ -31,7 +31,7 @@ router.post('/NewObsBureau', (req, res) => {
         if (err) {
           console.log(err);
         } else {
-          console.log(JSON.stringify(result));
+          console.log('Je nai trouver shitt =>' + JSON.stringify(result));
         }
       })
     const newObsBureau = new obsBureauVote({

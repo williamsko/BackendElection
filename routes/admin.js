@@ -27,16 +27,16 @@ const ObsDep = mongoose.model('Depouillement');
 AdminBro.registerAdapter(AdminBroMongoose)
 
 
-const Configuration = {
-  name: 'Configuration Scrutin',
-  icon: 'Settings',
-}
 
 const Observations = {
   name: 'Données des Observations',
   icon: 'data-table',
 }
 
+const Configuration = {
+  name: 'Configuration Scrutin',
+  icon: 'Settings',
+}
 const Admin = {
   name: 'Administration',
   icon: 'user',
@@ -47,6 +47,16 @@ const adminBro = new AdminBro({
   //resources: [UserAdmin],
 
   resources: [
+
+    { resource: ObsCorona, options: { parent: Observations, listProperties: ['idBureauVote','kitDeProtectionAgent','desinfectants','affichePrevention','agentRespectDistance','desinfectionBureau','lavageMainObligatoireInOut'] } },
+    { resource: ObsBureau, options: { parent: Observations,listProperties: ['idBureauVote','HeureOuvertureBureauVote','PresenceMembreBureauDeVote','MaterielAuComplet','isoloireGarantieSecretVote'] } },
+    { resource: ObsVoting, options: { parent: Observations,listProperties: ['idBureauVote','ElecteurMontrerCarteVerification','ElecteurProblemeIdentification','CombienInscritBureauVote','CombienVotant13h']  } },
+    { resource: ObsResultat, options: { parent: Observations,listProperties: ['idBureauVote','nombresInscrit','nombresVotant','nombresBullletinsNuls','SuffragesExprimes','NbrVotesProcurations',] } },
+    { resource: Incidents, options: { parent: Observations,listProperties: ['titreIncident','whoStarted','commune','_id'] } },
+    { resource: ObsDep, options: { parent: Observations ,listProperties: ['idBureauVote','HeureCloture','ElecteurVoteApres18H','depouiellementSansIncident','ImpressionGlobalScrutin'] }},
+
+    //{ resource: ObsPreElectorale, options: { parent: Observations,listProperties: ['idBureauVote','affichageListesElectorale','SuiviMeetingQuelCandidat','DeroulementPreElectoral'] } },
+
     { resource: Candidat, options: {parent: Configuration, listProperties: ['nom', 'PartiPolitique','couleurDuCandidat','PhotoDuCandidat'] }},
     { resource: Scrutin, options: { parent: Configuration, listProperties: ['nom', 'type','Date'] } },
     { resource: TypeCandidat, options: { parent: Configuration,listProperties: ['TitreDuType', '_id'] } },
@@ -54,19 +64,16 @@ const adminBro = new AdminBro({
     { resource: BureauVote, options: { parent: Configuration, listProperties: ['nom', 'codeBureauDeVote','region','commune','cercle','_id'] } },
     { resource: Observateurs, options: { parent: Configuration,listProperties: ['name', 'phoneNumber','cin','isActif','_id'] } },
 
-    { resource: Incidents, options: { parent: Observations,listProperties: ['titreIncident','whoStarted','commune','_id'] } },
-    { resource: ObsVoting, options: { parent: Observations,listProperties: ['idBureauVote','ElecteurMontrerCarteVerification','ElecteurProblemeIdentification','CombienInscritBureauVote','CombienVotant13h']  } },
-    { resource: ObsBureau, options: { parent: Observations,listProperties: ['idBureauVote','HeureOuvertureBureauVote','PresenceMembreBureauDeVote','MaterielAuComplet','isoloireGarantieSecretVote'] } },
-    { resource: ObsResultat, options: { parent: Observations,listProperties: ['idBureauVote','nombresInscrit','nombresVotant','nombresBullletinsNuls','SuffragesExprimes','NbrVotesProcurations',] } },
-    { resource: ObsCorona, options: { parent: Observations, listProperties: ['idBureauVote','kitDeProtectionAgent','desinfectants','affichePrevention','agentRespectDistance','desinfectionBureau','lavageMainObligatoireInOut'] } },
-    { resource: ObsPreElectorale, options: { parent: Observations,listProperties: ['idBureauVote','affichageListesElectorale','SuiviMeetingQuelCandidat','DeroulementPreElectoral'] } },
-    { resource: ObsDep, options: { parent: Observations ,listProperties: ['idBureauVote','HeureCloture','ElecteurVoteApres18H','depouiellementSansIncident','ImpressionGlobalScrutin'] }},
-
     { resource: UserAdmin, options: { parent: Admin } },
 
-
-
   ],
+  dashboard: {
+    handler: async () => {
+
+    },
+    component: AdminBro.bundle('./MyDashboard.jsx')
+  },
+
 
  
   
@@ -119,7 +126,7 @@ const adminBro = new AdminBro({
 
       // resources: [{ resource: users, options: {Parent: contentParent}}],
   branding: {
-    companyName: 'Ajcad Election',
+    companyName: 'ML Eléction',
     logo:'https://i.ibb.co/D83RFG4/app-icon-election.png',
     favicon:'https://i.ibb.co/D83RFG4/app-icon-election.png',
     SoftwareBrothers:false,
@@ -130,8 +137,8 @@ const adminBro = new AdminBro({
 })
 
   
-/* 
- const router = AdminBroExpress.buildAuthenticatedRouter(adminBro, {
+
+ /* const router = AdminBroExpress.buildAuthenticatedRouter(adminBro, {
   authenticate: async (email, password) => {
     const user = await UserAdmin.findOne({ email })
     if (user) {
