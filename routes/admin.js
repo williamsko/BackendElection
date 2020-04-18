@@ -126,7 +126,7 @@ const adminBro = new AdminBro({
 
       // resources: [{ resource: users, options: {Parent: contentParent}}],
   branding: {
-    companyName: 'ML Eléction',
+    companyName: 'ML Election',
     logo:'https://i.ibb.co/D83RFG4/app-icon-election.png',
     favicon:'https://i.ibb.co/D83RFG4/app-icon-election.png',
     SoftwareBrothers:false,
