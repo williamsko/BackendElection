@@ -22,7 +22,7 @@ const agrega = require('./routes/agrega')
 require ('./config/passport')(passport);
 
 // Connecter mongoose
-mongoose.connect(GVariables.mongoURI, {useNewUrlParser: true, useUnifiedTopology: true})
+mongoose.connect(GVariables.mongoURILocal, {useNewUrlParser: true, useUnifiedTopology: true})
     .then(()=> console.log('MongoDB connected ...'))
     .catch(err =>console.log(err));
 
@@ -69,7 +69,7 @@ app.use('/admin',adminRouter)
 
  
 //definir le port
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 5010;
 
 // ecouter le port 
 app.listen(port, ()=> {
