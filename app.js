@@ -69,7 +69,7 @@ app.use('/admin',adminRouter)
 
  
 //definir le port
-const port = process.env.PORT || 5010;
+const port = process.env.PORT || 5000;
 
 // ecouter le port 
 app.listen(port, ()=> {
