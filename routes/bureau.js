@@ -9,11 +9,6 @@ const Bureau = mongoose.model('BureauxDeVote')
 
 ////// creation d'un bureau de vote route \\\\\\\\\
 router.post('/create', (req, res) => {
-    Bureau.findOneAndRemove({idObservateur: req.body.idObservateur})
-    .then(bureau => {
-        res.json(bureau);
-    }).catch(err => {res.status(500).send(err)})
-
     const newBureau = new Bureau({
         nom: req.body.nom,
         codeBureauDeVote: req.body.code,
