@@ -349,7 +349,6 @@ router.get('/obsBureauVote', async (req, res) => {
                         "OBSERVATION OUVERTURE BUREAU (National)"+ "\n" +
                         "=======================================================================\n" +
                             " Nombre de bureau de vote Observé (Ouverture Bureau): " + numbertotal + "\n" +
-
                             " Pourcentage de bureau Vote ouvert avant 8h : " + (totalAVANT8H/numbertotal*100).toFixed(2)+ " % \n" +
                             " Pourcentage de bureau Vote avec du Materiel complet : " + (totalMaterielComplet/numbertotal*100).toFixed(2)+ " % \n" +
                             " Pourcentage de bureau Vote avec Isoloire qui garantie le secret du vote : " + (totalIsoloireGarantie/numbertotal*100).toFixed(2)+ " %\n" +

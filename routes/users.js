@@ -27,7 +27,7 @@ require('../models/UserAdmin');
 const User = mongoose.model('users');
 
 /////////////////Register route ////////////////////
-router.post('/register',(req,res)=>{
+router.post('/registerrr',(req,res)=>{
     let errors =[ status={}, allErrors={}];
    
     //check sur le Nom
