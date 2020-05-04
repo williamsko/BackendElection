@@ -22,7 +22,7 @@ const agrega = require('./routes/agrega')
 require ('./config/passport')(passport);
 
 // Connecter mongoose
-mongoose.connect(GVariables.mongoURI, {useNewUrlParser: true, useUnifiedTopology: true})
+mongoose.connect(GVariables.mongoURI, {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false})
     .then(()=> console.log('MongoDB connected ...'))
     .catch(err =>console.log(err));
 
