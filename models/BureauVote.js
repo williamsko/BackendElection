@@ -38,7 +38,7 @@ const SchemaBureauVote = new Schema ({
     },
     idScrutin:{
         type:String,
-      
+        required:true
     },
     idObservateur:{
         type:String,

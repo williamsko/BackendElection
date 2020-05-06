@@ -47,20 +47,20 @@ const adminBro = new AdminBro({
   //resources: [UserAdmin],
 
   resources: [
-
+    { resource: ObsPreElectorale, options: { parent: Observations,listProperties: ['idBureauVote','affichageListesElectorale','SuiviMeetingQuelCandidat','DeroulementPreElectoral'] } },
     { resource: ObsCorona, options: { parent: Observations, listProperties: ['idBureauVote','kitDeProtectionAgent','desinfectants','affichePrevention','agentRespectDistance','desinfectionBureau','lavageMainObligatoireInOut'] } },
     { resource: ObsBureau, options: { parent: Observations,listProperties: ['idBureauVote','HeureOuvertureBureauVote','PresenceMembreBureauDeVote','MaterielAuComplet','isoloireGarantieSecretVote'] } },
     { resource: ObsVoting, options: { parent: Observations,listProperties: ['idBureauVote','ElecteurMontrerCarteVerification','ElecteurProblemeIdentification','CombienInscritBureauVote','CombienVotant13h']  } },
     { resource: ObsResultat, options: { parent: Observations,listProperties: ['idBureauVote','nombresInscrit','nombresVotant','nombresBullletinsNuls','SuffragesExprimes','NbrVotesProcurations',] } },
-    { resource: Incidents, options: { parent: Observations,listProperties: ['titreIncident','whoStarted','commune','_id'] } },
     { resource: ObsDep, options: { parent: Observations ,listProperties: ['idBureauVote','HeureCloture','ElecteurVoteApres18H','depouiellementSansIncident','ImpressionGlobalScrutin'] }},
+    { resource: Incidents, options: { parent: Observations,listProperties: ['titreIncident','whoStarted','commune','_id'] } },
 
-    //{ resource: ObsPreElectorale, options: { parent: Observations,listProperties: ['idBureauVote','affichageListesElectorale','SuiviMeetingQuelCandidat','DeroulementPreElectoral'] } },
+   
 
     { resource: Candidat, options: {parent: Configuration, listProperties: ['nom', 'PartiPolitique','couleurDuCandidat','PhotoDuCandidat'] }},
     { resource: Scrutin, options: { parent: Configuration, listProperties: ['nom', 'type','Date'] } },
     { resource: TypeCandidat, options: { parent: Configuration,listProperties: ['TitreDuType', '_id'] } },
-    { resource: TypeIncident, options: { parent: Configuration } },
+    { resource: TypeIncident, options: { parent:Configuration } },
     { resource: BureauVote, options: { parent: Configuration, listProperties: ['nom', 'codeBureauDeVote','region','commune','cercle','_id'] } },
     { resource: Observateurs, options: { parent: Configuration,listProperties: ['name', 'phoneNumber','cin','isActif','_id'] } },
 
