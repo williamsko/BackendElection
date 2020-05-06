@@ -23,6 +23,7 @@ require('../models/ObsDepouillement');
 require('../models/ObsResultat');
 require('../models/ObsCorona');
 require('../models/UserAdmin');
+require('../models/PhasePost');
 
 const User = mongoose.model('users');
 

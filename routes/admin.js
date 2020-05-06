@@ -9,6 +9,7 @@ const mongoose = require('mongoose');
 const Candidat =  mongoose.model('Candidats');
 const BureauVote = mongoose.model('BureauxDeVote');
 const Incidents =  mongoose.model('Incidents');
+const PostElectorale =  mongoose.model('Post-Electorale');
 const Scrutin =  mongoose.model('Scrutins');
 const TypeCandidat = mongoose.model('Type Candidat');
 const TypeIncident = mongoose.model('Type Incidents');
@@ -54,7 +55,7 @@ const adminBro = new AdminBro({
     { resource: ObsResultat, options: { parent: Observations,listProperties: ['idBureauVote','nombresInscrit','nombresVotant','nombresBullletinsNuls','SuffragesExprimes','NbrVotesProcurations',] } },
     { resource: ObsDep, options: { parent: Observations ,listProperties: ['idBureauVote','HeureCloture','ElecteurVoteApres18H','depouiellementSansIncident','ImpressionGlobalScrutin'] }},
     { resource: Incidents, options: { parent: Observations,listProperties: ['titreIncident','whoStarted','commune','_id'] } },
-
+    { resource: PostElectorale, options: { parent: Observations,listProperties: ['titreIncident','whoStarted','commune','_id'] } },
    
 
     { resource: Candidat, options: {parent: Configuration, listProperties: ['nom', 'PartiPolitique','couleurDuCandidat','PhotoDuCandidat'] }},
