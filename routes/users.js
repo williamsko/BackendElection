@@ -28,7 +28,7 @@ require('../models/PhasePost');
 const User = mongoose.model('users');
 
 /////////////////Register route ////////////////////
-router.post('/registerrr',(req,res)=>{
+router.post('/register',(req,res)=>{
     let errors =[ status={}, allErrors={}];
    
     //check sur le Nom
